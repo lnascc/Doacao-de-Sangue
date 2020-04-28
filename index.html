@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--HTML
+
+    HYPERTEXT
+    texto que contem links para outros documentos
+
+    MARKUP 
+    texto conterá marcações 
+    <tags>
+    
+    LANGUAGE
+    Para me comunicar de certa maneira. Sintaxe específica para escrita.  
+
+-->
+
+<html>
+
+    <head>
+        <!--São configurações da minha pagina-->
+
+        <title>Doação de Sangue</title>
+        
+        <link rel="stylesheet" href="./public/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <!--Aqui vem todo o conteúdo visível para o usuário da página-->
+        <header>
+
+            <img class="logo" src="./public/logo.png" alt="Imagem de DOE">
+            <h2>A sua doação importa</h2>
+            <p>Até três vidas são salvas com uma doação</p>
+            <p>Mais de 38 mil doações são necessárias todos os dias</p>
+            <p>Apenas 1,9% da população brasileira doa sangue</p>
+
+            <button>Quero ajudar</button>
+
+        </header>
+        <!--Input (Entrada)-->
+        <!--Output (Saida)-->
+
+        <section class="form hide">
+           
+            <h2>Entre na lista de doadores</h2>
+            <form action="/" method="POST">
+                
+                <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Nome Completo"
+                >
+                <input 
+                    type="text" 
+                    name="email" 
+                    placeholder="E-mail"
+                >
+                <input 
+                    type="text" 
+                    name="blood" 
+                    placeholder="Tipo sanguineo"
+                >
+
+                <button>Quero ajudar!</button>
+            </form>
+        </section>
+
+        <main>
+            <h2>Ultimos <span>doadores</span></h2>
+
+            <section class="donors">
+
+                {% for donor in donors %}
+
+                <div class="donor">
+                    <div class="blood">{{donor.blood}}</div>
+                    <p>{{donor.name}}</p>
+
+                </div>
+                
+                {%endfor%}
+
+            </section>
+        </main>
+
+        <footer>Com amor eu mesma😍</footer>
+
+        <script src="./public/script.js"></script>
+    </body>
+
+</html>
